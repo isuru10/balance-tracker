@@ -50,8 +50,6 @@ To improve testablity, the API calls are separated to its own service. Also, the
 
 Any of the following methods can be used to deploy the app to a server
 
-- Push the repository to the `gh-pages` branch of your repository. The app will be deployed at [https://isuru10.github.io/balance-tracker](https://isuru10.github.io/balance-tracker)
-
 - Connect the repository to `Netlify` or `Vercel` and configure it to deploy the app from the `build` directory
 
 - Deploy on AWS S3
