@@ -2,6 +2,8 @@
 
 A simple React application that displays the monthly balances and cumulative balance of an account based on its transactions.
 
+![Balance Tracker](/balance-tracker.jpg "Balance Tracker")
+
 ## Setup
 
 1. Clone the repository
