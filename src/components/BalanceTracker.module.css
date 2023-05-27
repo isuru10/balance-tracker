@@ -1,0 +1,37 @@
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.monthlyBalances {
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+th,
+td {
+	padding: 8px;
+}
+
+th {
+	text-align: left;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.amountColumn {
+	text-align: right;
+}
+
+.error {
+	color: red;
+}

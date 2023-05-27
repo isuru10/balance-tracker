@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Balance Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React application that displays the monthly balances and cumulative balance of an account based on its transactions.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+1. Clone the repository
 
-### `npm start`
+```shell
+git clone https://github.com/isuru10/balance-tracker.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Navigate to the project directory
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```shell
+cd balance-tracker
+```
 
-### `npm test`
+3. Install dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+npm install
+```
 
-### `npm run build`
+# Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Enter `API_ENDPOINT_URL` in `apiService.ts` file. The API should provide bank transactions in following format
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```typescript
+interface Transaction {
+	amount: number;
+	date: string;
+	type: "credit" | "debit";
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Start the development server
 
-### `npm run eject`
+```shell
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Testability
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To improve testablity, the API calls are separated to its own service. Also, the helper functions in the Balance tracker are well segregated to help in unit testing.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Deployment
 
-## Learn More
+Any of the following methods can be used to deploy the app to a server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Push the repository to the `gh-pages` branch of your repository. The app will be deployed at [https://isuru10.github.io/balance-tracker](https://isuru10.github.io/balance-tracker)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Connect the repository to `Netlify` or `Vercel` and configure it to deploy the app from the `build` directory
+
+- Deploy on AWS S3
+  - Create an AWS S3 bucket
+  - Upload the `build` files to S3
+  - Configure bucket permissions to allow public read access
+  - Configure the bucket for web hosting by setting `index.html` as the index document
